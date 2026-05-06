@@ -60,7 +60,7 @@
             backdrop-filter: blur(12px);
         }
         
-        /* МОБИЛЬНАЯ ОПТИМИЗАЦИЯ (оставлена как есть) */
+        /* МОБИЛЬНАЯ ОПТИМИЗАЦИЯ */
         @media (max-width: 768px) {
             .section-padding {
                 padding-top: 3.5rem !important;
@@ -71,7 +71,7 @@
 </head>
 <body class="bg-[#f5ede3] text-[#0a3d33]">
 
-    <!-- ШАПКА С МОБИЛЬНЫМ МЕНЮ (без изменений) -->
+    <!-- ШАПКА (гамбургер меню полностью убран) -->
     <nav class="navbar bg-white/95 sticky top-0 z-50 border-b border-[#0a3d33]/10">
         <div class="max-w-screen-2xl mx-auto px-5 md:px-8 py-5 flex items-center justify-between">
             <div class="flex items-center gap-x-3">
@@ -79,7 +79,7 @@
                 <h1 class="heading-font text-3xl tracking-tight">Тишина у реки</h1>
             </div>
 
-            <!-- Десктоп меню -->
+            <!-- Только десктоп меню (на телефоне скрыто) -->
             <div class="hidden lg:flex items-center gap-x-9 text-lg font-medium">
                 <a href="#location" class="hover:text-[#f4a261]">О локации</a>
                 <a href="#for-whom" class="hover:text-[#f4a261]">Кому подойдёт</a>
@@ -92,28 +92,12 @@
                 <i class="fa-solid fa-phone"></i>
                 Связаться
             </a>
-
-            <!-- Мобильная кнопка -->
-            <button onclick="toggleMobileMenu()" class="lg:hidden text-3xl p-2">
-                <i id="menuIcon" class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Мобильное меню -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t px-5 py-6">
-            <div class="flex flex-col gap-6 text-lg font-medium">
-                <a href="#location" onclick="toggleMobileMenu()" class="py-2">О локации</a>
-                <a href="#for-whom" onclick="toggleMobileMenu()" class="py-2">Кому подойдёт</a>
-                <a href="#gallery" onclick="toggleMobileMenu()" class="py-2">Галерея</a>
-                <a href="#contacts" onclick="toggleMobileMenu()" class="py-2">Контакты</a>
-            </div>
         </div>
     </nav>
 
-    <!-- ПЕРВЫЙ ЭКРАН (только эта секция изменена по твоему запросу) -->
+    <!-- ПЕРВЫЙ ЭКРАН (оставлен точно как просил) -->
     <header id="hero" class="hero-bg h-screen flex items-center text-white relative">
         <div class="max-w-screen-2xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-16 items-center h-full">
-            <!-- Левая колонка с текстом (как в первой версии) -->
             <div class="pt-20 lg:pt-0">
                 <h1 class="heading-font text-5xl md:text-6xl lg:text-7xl leading-none font-bold tracking-tighter mb-6">
                     Место, где рождаются<br>сильные решения
@@ -137,7 +121,6 @@
                 </div>
             </div>
             
-            <!-- Декоративный элемент справа (как в ранних версиях) -->
             <div class="hidden lg:flex flex-col justify-end h-full pb-20">
                 <div class="text-[#f5ede3]/90 text-right">
                     <p class="text-8xl font-light heading-font">СЕРЁНА</p>
@@ -146,16 +129,13 @@
             </div>
         </div>
 
-        <!-- Скролл-подсказка (только на десктопе) -->
         <div class="absolute bottom-8 left-1/2 hidden md:flex flex-col items-center text-xs tracking-widest">
             <span>ПРОКРУТИТЕ</span>
             <i class="fa-solid fa-chevron-down text-2xl animate-bounce mt-2"></i>
         </div>
     </header>
 
-    <!-- ВСЕ ОСТАЛЬНЫЕ СЕКЦИИ ОСТАВЛЕНЫ БЕЗ ИЗМЕНЕНИЙ (точно как в предыдущей версии) -->
-
-    <!-- О ЛОКАЦИИ -->
+    <!-- О ЛОКАЦИИ (оставлено без изменений) -->
     <section id="location" class="section-padding max-w-screen-2xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div class="lg:col-span-5">
@@ -196,7 +176,7 @@
         </div>
     </section>
 
-    <!-- ОБЪЕДИНЁННАЯ СЕКЦИЯ: КОМУ ПОДОЙДЁТ -->
+    <!-- ОБЪЕДИНЁННАЯ СЕКЦИЯ: КОМУ ПОДОЙДЁТ (оставлено без изменений) -->
     <section id="for-whom" class="bg-[#0a3d33] text-[#f5ede3] section-padding py-16 md:py-24">
         <div class="max-w-screen-2xl mx-auto px-5 md:px-8">
             <div class="text-center mb-16">
@@ -256,7 +236,7 @@
         </div>
     </section>
 
-    <!-- ГАЛЕРЕЯ -->
+    <!-- ГАЛЕРЕЯ (оставлено без изменений) -->
     <section id="gallery" class="section-padding bg-white py-16 md:py-24">
         <div class="max-w-screen-2xl mx-auto px-5 md:px-8">
             <h2 class="heading-font text-4xl md:text-5xl mb-12 text-center md:text-left">Галерея уединения</h2>
@@ -275,33 +255,36 @@
         </div>
     </section>
 
-    <!-- УСЛОВИЯ И СТОИМОСТЬ -->
+    <!-- УСЛОВИЯ И СТОИМОСТЬ (оптимизировано под мобильные — ничего не вылезает) -->
     <section class="bg-[#0a3d33] text-[#f5ede3] section-padding py-16 md:py-24">
         <div class="max-w-4xl mx-auto px-5 md:px-8 text-center">
             <h2 class="heading-font text-4xl md:text-5xl mb-6">Условия и стоимость</h2>
-            <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12">
+            <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 md:p-12">
                 <p class="text-3xl md:text-4xl font-light mb-6">Стоимость аренды обсуждается индивидуально</p>
-                <p class="text-2xl mb-8">Зависит от формата, количества гостей и сроков</p>
-                <div class="inline-flex items-center gap-x-3 bg-white/20 rounded-3xl px-8 py-4 text-2xl mb-10">
-                    Ориентировочно <span class="font-semibold text-[#f4a261]">250–500 ₽</span> с человека
+                <p class="text-xl md:text-2xl mb-8">Зависит от формата, количества гостей и сроков</p>
+                
+                <!-- Оптимизированный блок цены (не вылезает на телефоне) -->
+                <div class="inline-flex flex-col sm:flex-row items-center justify-center gap-x-3 bg-white/20 rounded-3xl px-6 py-4 text-xl md:text-2xl mb-10 w-full sm:w-auto">
+                    Ориентировочно <span class="font-semibold text-[#f4a261] whitespace-nowrap">250–500 ₽</span> с человека
                 </div>
+                
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-3xl mx-auto">
                     <div class="flex gap-4">
-                        <i class="fa-solid fa-file-contract text-4xl"></i>
+                        <i class="fa-solid fa-file-contract text-4xl flex-shrink-0"></i>
                         <div>
                             <div class="font-semibold">Работа по договору</div>
                             <div class="text-[#f5ede3]/70">Официально и прозрачно</div>
                         </div>
                     </div>
                     <div class="flex gap-4">
-                        <i class="fa-solid fa-handshake text-4xl"></i>
+                        <i class="fa-solid fa-handshake text-4xl flex-shrink-0"></i>
                         <div>
                             <div class="font-semibold">Условия под ваш формат</div>
                             <div class="text-[#f5ede3]/70">Гибкость и индивидуальный подход</div>
                         </div>
                     </div>
                     <div class="flex gap-4">
-                        <i class="fa-solid fa-briefcase text-4xl"></i>
+                        <i class="fa-solid fa-briefcase text-4xl flex-shrink-0"></i>
                         <div>
                             <div class="font-semibold">Работаем с event- и PR-агентствами</div>
                             <div class="text-[#f5ede3]/70">Корпоративные клиенты — всегда желанные гости</div>
@@ -312,7 +295,7 @@
         </div>
     </section>
 
-    <!-- КОНТАКТЫ -->
+    <!-- КОНТАКТЫ (оставлено без изменений) -->
     <section id="contacts" class="section-padding max-w-screen-2xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div class="grid lg:grid-cols-2 gap-16 items-start">
             <div class="bg-white rounded-3xl p-8 md:p-10 shadow-xl">
@@ -374,7 +357,7 @@
         </div>
     </section>
 
-    <!-- ФУТЕР -->
+    <!-- ФУТЕР (оставлен без изменений) -->
     <footer class="bg-[#0a3d33] text-[#f5ede3]/70 py-12 text-center text-sm">
         <div class="max-w-screen-2xl mx-auto px-5 md:px-8">
             © 2026 Тишина у реки • 40 га уединения в Калужской области<br>
@@ -383,26 +366,13 @@
     </footer>
 
     <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('menuIcon');
-            menu.classList.toggle('hidden');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            } else {
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-xmark');
-            }
-        }
-
         function handleSubmit(e) {
             e.preventDefault();
             alert('✅ Заявка отправлена! Менеджер свяжется с вами в ближайшее время.');
             e.target.reset();
         }
         
-        console.log('%c✅ Сайт обновлён — hero-секция возвращена в оригинальный вид!', 'color:#f4a261; font-size:18px; font-weight:bold');
+        console.log('%c✅ Сайт готов — гамбургер убран, секция цены оптимизирована под мобильные!', 'color:#f4a261; font-size:18px; font-weight:bold');
     </script>
 </body>
 </html>
