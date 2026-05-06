@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Аренда уединённого участка 40 га у реки Серёна • 200 км от МКАД • Идеально для корпоративов, ретритов и съёмок">
+    <title>Тишина у реки • 40 га уединения</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --green: #0a3d33;
+            --beige: #f5ede3;
+            --orange: #f4a261;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(10, 61, 51, 0.65), rgba(10, 61, 51, 0.65)), 
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: #f4a261;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* АНИМАЦИЯ ПРИ НАВЕДЕНИИ — как в первом варианте */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 25px 25px 0 -10px #f4a261;
+        }
+        
+        .gallery-img {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-img:hover {
+            transform: scale(1.06);
+            filter: brightness(1.08);
+        }
+        
+        /* ПЛАВНЫЙ СКРОЛЛ ПО МЕНЮ */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Улучшенная форма */
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #f4a261;
+            box-shadow: 0 0 0 4px rgba(244, 162, 97, 0.15);
+        }
+        
+        .navbar {
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-[#f5ede3] text-[#0a3d33]">
+
+    <!-- ШАПКА -->
+    <nav class="navbar bg-white/95 sticky top-0 z-50 border-b border-[#0a3d33]/10">
+        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-10 h-10 bg-[#0a3d33] rounded-2xl flex items-center justify-center text-white text-2xl">🌲</div>
+                <h1 class="heading-font text-3xl tracking-tight">Тишина у реки</h1>
+            </div>
+
+            <!-- Десктоп меню -->
+            <div class="hidden lg:flex items-center gap-x-9 text-lg font-medium">
+                <a href="#location" class="hover:text-[#f4a261]">О локации</a>
+                <a href="#for-whom" class="hover:text-[#f4a261]">Кому подойдёт</a>
+                <a href="#gallery" class="hover:text-[#f4a261]">Галерея</a>
+                <a href="#contacts" class="hover:text-[#f4a261]">Контакты</a>
+            </div>
+
+            <a href="#contacts" 
+               class="px-8 py-4 bg-[#f4a261] hover:bg-[#e07a3f] text-white font-semibold rounded-3xl flex items-center gap-x-2 text-lg shadow-lg shadow-[#f4a261]/30">
+                <i class="fa-solid fa-phone"></i>
+                Связаться
+            </a>
+        </div>
+    </nav>
+
+    <!-- ПЕРВЫЙ ЭКРАН -->
+    <header id="hero" class="hero-bg h-screen flex items-center text-white relative">
+        <div class="max-w-screen-2xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center h-full">
+            <div class="pt-20 lg:pt-0">
+                <h1 class="heading-font text-6xl lg:text-7xl leading-none font-bold tracking-tighter mb-6">
+                    Место, где рождаются<br>сильные решения
+                </h1>
+                <p class="text-2xl mb-10 max-w-lg text-[#f5ede3]">
+                    Аренда уединённой территории 40 га<br>
+                    200 км от МКАД по Киевскому шоссе
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contacts" 
+                       class="px-10 py-6 bg-white text-[#0a3d33] hover:bg-[#f4a261] hover:text-white text-2xl font-semibold rounded-3xl flex items-center gap-x-4 shadow-2xl">
+                        Забронировать
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#gallery" 
+                       class="px-10 py-6 border-2 border-white hover:bg-white/10 text-2xl font-semibold rounded-3xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-images"></i>
+                        Посмотреть фото
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center">
+            <div class="text-xs tracking-[3px] mb-3">ПРОКРУТИТЕ</div>
+            <i class="fa-solid fa-chevron-down text-3xl animate-bounce"></i>
+        </div>
+    </header>
+
+    <!-- О ЛОКАЦИИ -->
+    <section id="location" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <div class="grid lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-5">
+                <span class="uppercase tracking-widest text-[#f4a261] font-medium">Калужская область • Мещовский район</span>
+                <h2 class="heading-font text-5xl leading-none mt-3 mb-8">40 га полной тишины у реки</h2>
+                
+                <div class="space-y-8 text-lg">
+                    <div class="flex gap-6">
+                        <i class="fa-solid fa-location-dot text-4xl text-[#f4a261] mt-1"></i>
+                        <div>
+                            <p class="font-semibold">д. Лаптево, Заречная ул., 39</p>
+                            <p class="text-[#0a3d33]/70">200 км от МКАД • 2,5 часа в пути</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="grid grid-cols-2 gap-y-6 text-lg">
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Полная уединённость — без жилых домов</li>
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Река Серёна прямо по границе участка</li>
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Подключено электричество</li>
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Вода на территории</li>
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Простор для шатров и активностей</li>
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Удобный подъезд для техники</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lg:col-span-7 bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#0a3d33]/10">
+                <iframe src="https://yandex.ru/map-widget/v1/?ll=35.438%2C54.325&z=15&pt=35.438,54.325" 
+                        width="100%" height="520" frameborder="0" allowfullscreen></iframe>
+                <div class="px-8 py-5 bg-[#f5ede3] flex items-center justify-between text-sm">
+                    <div>📍 д. Лаптево, Заречная ул., 39</div>
+                    <a href="https://yandex.ru/maps/?ll=35.438%2C54.325&z=15" target="_blank" 
+                       class="text-[#f4a261] hover:underline flex items-center gap-x-2">
+                        Открыть в Яндекс.Картах <i class="fa-solid fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОБЪЕДИНЁННАЯ СЕКЦИЯ: КОМУ ПОДОЙДЁТ -->
+    <section id="for-whom" class="bg-[#0a3d33] text-[#f5ede3] py-24">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <span class="px-6 py-2 bg-[#f4a261] text-[#0a3d33] rounded-3xl text-sm font-semibold">ИДЕАЛЬНОЕ МЕСТО ДЛЯ ВАШЕГО ПРОРЫВА</span>
+                <h2 class="heading-font text-5xl mt-4">Здесь рождаются идеи, которые меняют всё</h2>
+                <p class="max-w-2xl mx-auto mt-6 text-xl text-[#f5ede3]/80">
+                    Тишина реки, 40 гектаров уединения и полная свобода от городской суеты.<br>
+                    Идеальное пространство для тех, кто создаёт будущее.
+                </p>
+            </div>
+            
+            <!-- Карточки «Для кого» с новыми иконками -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-20">
+                <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 card-hover">
+                    <i class="fa-solid fa-users text-5xl mb-8 text-[#f4a261]"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Корпоративные выезды и тимбилдинги</h3>
+                    <p class="text-[#f5ede3]/80">Создайте настоящую команду в атмосфере доверия и вдохновения природы.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 card-hover">
+                    <i class="fa-solid fa-lightbulb text-5xl mb-8 text-[#f4a261]"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Стратегические сессии</h3>
+                    <p class="text-[#f5ede3]/80">Мозговые штурмы и важные решения, которые рождаются только в тишине.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 card-hover">
+                    <i class="fa-solid fa-camera text-5xl mb-8 text-[#f4a261]"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Съёмки и презентации</h3>
+                    <p class="text-[#f5ede3]/80">Идеальная локация для видео, фотосессий и мощного бренд-контента.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 card-hover">
+                    <i class="fa-solid fa-bullhorn text-5xl mb-8 text-[#f4a261]"></i>
+                    <h3 class="text-2xl font-semibold mb-4">PR-бренд-мероприятия</h3>
+                    <p class="text-[#f5ede3]/80">Эксклюзивная атмосфера для важных гостей и партнёров.</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 card-hover">
+                    <i class="fa-solid fa-spa text-5xl mb-8 text-[#f4a261]"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Йога и wellness-ретриты</h3>
+                    <p class="text-[#f5ede3]/80">Восстановление энергии у реки — лучшее место для глубокого отдыха.</p>
+                </div>
+            </div>
+            
+            <!-- Блок «Что не подходит» -->
+            <div class="max-w-3xl mx-auto bg-white/10 backdrop-blur-lg rounded-3xl p-10">
+                <h3 class="text-2xl font-semibold mb-8 text-center">Чтобы сохранить атмосферу тишины мы не проводим:</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <i class="fa-solid fa-volume-high text-5xl text-red-400 mb-4"></i>
+                        <p class="font-medium">Громкие концерты и фестивали</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fa-solid fa-moon text-5xl text-red-400 mb-4"></i>
+                        <p class="font-medium">Ночные вечеринки и рейвы</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fa-solid fa-people-group text-5xl text-red-400 mb-4"></i>
+                        <p class="font-medium">Массовые шумные тусовки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ -->
+    <section id="gallery" class="max-w-screen-2xl mx-auto px-8 py-24 bg-white">
+        <div class="flex justify-between items-baseline mb-12">
+            <h2 class="heading-font text-5xl">Галерея уединения</h2>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <img src="https://picsum.photos/id/1015/800/800" alt="Река Серёна" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/1016/800/800" alt="Лес у реки" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/133/800/800" alt="Открытое пространство" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/201/800/800" alt="Утро на участке" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/251/800/800" alt="Закат над рекой" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/1005/800/800" alt="Простор для шатров" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/1018/800/800" alt="Лесной массив" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/1036/800/800" alt="Тишина и природа" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/106/800/800" alt="Участок 40 га" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+            <img src="https://picsum.photos/id/160/800/800" alt="Место для йоги" class="gallery-img w-full aspect-square object-cover rounded-3xl">
+        </div>
+    </section>
+
+    <!-- УСЛОВИЯ И СТОИМОСТЬ -->
+    <section class="max-w-screen-2xl mx-auto px-8 py-20 bg-[#0a3d33] text-[#f5ede3]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="heading-font text-5xl mb-6">Условия и стоимость</h2>
+            <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-12">
+                <p class="text-4xl font-light mb-6">Стоимость аренды обсуждается индивидуально</p>
+                <p class="text-2xl mb-8">Зависит от формата, количества гостей и сроков</p>
+                
+                <div class="inline-flex items-center gap-x-3 bg-white/20 rounded-3xl px-8 py-4 text-2xl mb-10">
+                    Ориентировочно <span class="font-semibold text-[#f4a261]">250–500 ₽</span> с человека
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-3xl mx-auto">
+                    <div class="flex gap-4">
+                        <i class="fa-solid fa-file-contract text-4xl"></i>
+                        <div>
+                            <div class="font-semibold">Работа по договору</div>
+                            <div class="text-[#f5ede3]/70">Официально и прозрачно</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <i class="fa-solid fa-handshake text-4xl"></i>
+                        <div>
+                            <div class="font-semibold">Условия под ваш формат</div>
+                            <div class="text-[#f5ede3]/70">Гибкость и индивидуальный подход</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <i class="fa-solid fa-briefcase text-4xl"></i>
+                        <div>
+                            <div class="font-semibold">Работаем с event- и PR-агентствами</div>
+                            <div class="text-[#f5ede3]/70">Корпоративные клиенты — всегда желанные гости</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section id="contacts" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <!-- Форма -->
+            <div class="bg-white rounded-3xl p-10 shadow-xl">
+                <h2 class="heading-font text-5xl mb-4">Забронируйте дату</h2>
+                <p class="text-xl text-[#0a3d33]/70 mb-10">Оставьте заявку — сразу вышлем план участка, фото и условия</p>
+                
+                <form id="booking-form" onsubmit="handleSubmit(event)" class="space-y-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Ваше имя</label>
+                            <input type="text" required placeholder="Иван Иванов" 
+                                   class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Телефон</label>
+                            <input type="tel" required placeholder="+7 (999) 123-45-67" 
+                                   class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Дата и формат мероприятия</label>
+                        <input type="text" placeholder="15–17 июня, корпоратив 40 человек" 
+                               class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Количество гостей</label>
+                            <input type="number" placeholder="30–50" 
+                                   class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Комментарий</label>
+                            <input type="text" placeholder="Дополнительные пожелания" 
+                                   class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full py-7 bg-[#f4a261] hover:bg-[#e07a3f] text-white text-2xl font-semibold rounded-3xl flex items-center justify-center gap-x-4">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        ОТПРАВИТЬ ЗАЯВКУ
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Правая колонка -->
+            <div class="flex flex-col justify-center">
+                <div class="bg-[#0a3d33] text-[#f5ede3] rounded-3xl p-10">
+                    <p class="text-3xl font-light mb-8">Звоните или пишите — ответим за 15 минут</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="tel:+79991234567" class="flex-1 bg-white/10 hover:bg-white/20 text-white rounded-3xl py-7 px-8 text-center text-xl font-medium flex items-center justify-center gap-x-3">
+                            <i class="fa-solid fa-phone"></i>
+                            +7 (999) 123-45-67
+                        </a>
+                        <a href="https://t.me/" target="_blank" 
+                           class="flex-1 bg-white/10 hover:bg-white/20 text-white rounded-3xl py-7 px-8 text-center text-xl font-medium flex items-center justify-center gap-x-3">
+                            <i class="fa-brands fa-telegram"></i>
+                            Telegram
+                        </a>
+                    </div>
+                    
+                    <p class="text-[#f5ede3]/70 mt-10">Сразу пришлём:</p>
+                    <ul class="space-y-3 mt-4 text-lg">
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Полный план участка</li>
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Актуальные фото и видео</li>
+                        <li class="flex items-center gap-x-4"><i class="fa-solid fa-check text-[#f4a261]"></i> Условия и доступные даты</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <footer class="bg-[#0a3d33] text-[#f5ede3]/70 py-12 text-center text-sm">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            © 2026 Тишина у реки • 40 га уединения в Калужской области<br>
+            Все права защищены. Участок сдаётся только под спокойные и осознанные мероприятия.
+        </div>
+    </footer>
+
+    <script>
+        // Обработка формы
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('✅ Заявка отправлена! Менеджер свяжется с вами в ближайшее время и пришлёт все материалы.');
+            e.target.reset();
+        }
+        
+        console.log('%c✅ Сайт «Тишина у реки» обновлён и готов!', 'color:#f4a261; font-size:18px; font-weight:bold');
+    </script>
+</body>
+</html>
