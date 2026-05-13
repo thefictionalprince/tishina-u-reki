@@ -301,36 +301,51 @@
             <div class="bg-white rounded-3xl p-8 md:p-10 shadow-xl">
                 <h2 class="heading-font text-4xl md:text-5xl mb-4">Забронируйте дату</h2>
                 <p class="text-xl text-[#0a3d33]/70 mb-10">Оставьте заявку — сразу вышлем план участка, фото и условия</p>
-                <form id="booking-form" onsubmit="handleSubmit(event)" class="space-y-8">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Ваше имя</label>
-                            <input type="text" required placeholder="Иван Иванов" class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Телефон</label>
-                            <input type="tel" required placeholder="+7 (999) 123-45-67" class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Дата и формат мероприятия</label>
-                        <input type="text" placeholder="15–17 июня, корпоратив 40 человек" class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Количество гостей</label>
-                            <input type="number" placeholder="30–50" class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Комментарий</label>
-                            <input type="text" placeholder="Дополнительные пожелания" class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full py-7 bg-[#f4a261] hover:bg-[#e07a3f] text-white text-2xl font-semibold rounded-3xl flex items-center justify-center gap-x-4">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        ОТПРАВИТЬ ЗАЯВКУ
-                    </button>
-                </form>
+                <form id="booking-form" class="space-y-8">
+    <!-- Скрытые поля для удобства -->
+    <input type="hidden" name="_subject" value="Новая заявка с сайта «Тишина у реки»">
+    <input type="hidden" name="location" value="Тишина у реки • 40 га у реки Серёна, Калужская обл.">
+    <input type="hidden" name="_next" value="#contacts"> <!-- после отправки вернёт на контакты -->
+    <input type="text" name="_honeypot" style="display:none" aria-hidden="true"> <!-- защита от спама -->
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+            <label class="block text-sm font-medium mb-2">Ваше имя</label>
+            <input type="text" name="name" required placeholder="Иван Иванов" 
+                   class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-2">Телефон</label>
+            <input type="tel" name="phone" required placeholder="+7 (999) 123-45-67" 
+                   class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+        </div>
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium mb-2">Дата и формат мероприятия</label>
+        <input type="text" name="event_date" placeholder="15–17 июня, корпоратив 40 человек" 
+               class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+            <label class="block text-sm font-medium mb-2">Количество гостей</label>
+            <input type="number" name="guests" placeholder="30–50" 
+                   class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-2">Комментарий / пожелания</label>
+            <input type="text" name="comment" placeholder="Дополнительные пожелания" 
+                   class="form-input w-full px-6 py-5 bg-[#f5ede3] border border-[#0a3d33]/10 rounded-3xl focus:outline-none text-lg">
+        </div>
+    </div>
+
+    <button type="submit" id="submit-btn"
+            class="w-full py-7 bg-[#f4a261] hover:bg-[#e07a3f] text-white text-2xl font-semibold rounded-3xl flex items-center justify-center gap-x-4 transition-all">
+        <i class="fa-solid fa-paper-plane"></i>
+        ОТПРАВИТЬ ЗАЯВКУ
+    </button>
+</form>
             </div>
             
             <div class="flex flex-col justify-center">
@@ -366,13 +381,54 @@
     </footer>
 
     <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert('✅ Заявка отправлена! Менеджер свяжется с вами в ближайшее время.');
-            e.target.reset();
+    const form = document.getElementById('booking-form');
+    const button = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Показываем загрузку
+        const originalHTML = button.innerHTML;
+        button.innerHTML = `
+            <svg class="animate-spin h-6 w-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+            </svg>
+            Отправляем...
+        `;
+        button.disabled = true;
+
+        // ТВОЙ endpoint из Formspree
+        const endpoint = 'https://formspree.io/f/xrejdaad';
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                alert('✅ Заявка успешно отправлена! Менеджер свяжется с вами в ближайшее время.');
+                form.reset();
+            } else {
+                const errorText = await response.text();
+                alert('⚠️ Ошибка при отправке. Попробуйте ещё раз или напишите нам в Telegram.');
+                console.error(errorText);
+            }
+        } catch (error) {
+            alert('⚠️ Проблема с соединением. Проверьте интернет или напишите в Telegram.');
+            console.error(error);
+        } finally {
+            // Возвращаем кнопку в исходное состояние
+            button.innerHTML = originalHTML;
+            button.disabled = false;
         }
-        
-        console.log('%c✅ Сайт готов — гамбургер убран, секция цены оптимизирована под мобильные!', 'color:#f4a261; font-size:18px; font-weight:bold');
-    </script>
+    });
+</script>
 </body>
 </html>
